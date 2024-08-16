@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import './authentication.css'; // For custom styles
+import './authentication.css'; 
+import { useDispatch, useSelector } from 'react-redux';
+import { loginSuccess, logout } from '../features/auth/authSlice';
+
 
 const LoginComponent = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth.user);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,7 +18,7 @@ const LoginComponent = () => {
       setError('Both fields are required');
       return;
     }
-
+    dispatch(loginSuccess({email,password}))
     // Reset error
     setError('');
 
@@ -24,7 +29,7 @@ const LoginComponent = () => {
     // For demonstration purposes, let's assume successful login
     alert('Login successful');
   };
-
+ console.log(user,"user>>>>>>>>>>>>>>>.")
   return (
     <div className="login-container">
       <h2>Login</h2>
