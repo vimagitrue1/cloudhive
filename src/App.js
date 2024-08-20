@@ -5,6 +5,7 @@ import FooterComponent from './base/FooterComponent';
 import LoginComponent from './Authentication/LoginComponet';
 import GoogleMapComponent from './offices/googlemaps';
 import SearchLocationInput from './offices/serachLocation';
+import HomeComponent from './offices/home';
 function App() {
 
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/login" element={<LoginComponent />} />
           <Route path="/googleMap" element={<GoogleMapComponent />} />
           <Route path="/search" element={<SearchLocationInput />} />
+          <Route path="/home" element={<HomeComponent/>}/>
           {/* <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />  */}
         </Routes>
